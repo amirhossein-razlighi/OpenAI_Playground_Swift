@@ -8,5 +8,5 @@
 import Foundation
 
 struct Constants {
-    static let openAIAPIKey = "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"
+    static let openAIAPIKey = ""
 }
