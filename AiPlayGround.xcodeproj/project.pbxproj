@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		604D4C9329D2E32200A53117 /* TextBubble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604D4C9229D2E32200A53117 /* TextBubble.swift */; };
 		60F3779D29D1E82B0092617C /* AiPlayGroundApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F3779C29D1E82B0092617C /* AiPlayGroundApp.swift */; };
 		60F3779F29D1E82B0092617C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F3779E29D1E82B0092617C /* ContentView.swift */; };
 		60F377A129D1E82C0092617C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 60F377A029D1E82C0092617C /* Assets.xcassets */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		604D4C9229D2E32200A53117 /* TextBubble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextBubble.swift; sourceTree = "<group>"; };
 		60F3779929D1E82B0092617C /* AiPlayGround.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AiPlayGround.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		60F3779C29D1E82B0092617C /* AiPlayGroundApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AiPlayGroundApp.swift; sourceTree = "<group>"; };
 		60F3779E29D1E82B0092617C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -90,6 +92,7 @@
 			children = (
 				60F3779E29D1E82B0092617C /* ContentView.swift */,
 				60F377AE29D1E8B70092617C /* ChatView.swift */,
+				604D4C9229D2E32200A53117 /* TextBubble.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -188,6 +191,7 @@
 				60F377B129D1E8CA0092617C /* ChatMessage.swift in Sources */,
 				60F377B729D1EDA90092617C /* ChatService.swift in Sources */,
 				60F377B329D1E90E0092617C /* MessageSender.swift in Sources */,
+				604D4C9329D2E32200A53117 /* TextBubble.swift in Sources */,
 				60F377AF29D1E8B70092617C /* ChatView.swift in Sources */,
 				60F3779D29D1E82B0092617C /* AiPlayGroundApp.swift in Sources */,
 				60F377B529D1ED650092617C /* Constants.swift in Sources */,

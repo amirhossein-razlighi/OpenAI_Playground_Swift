@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ChatView: View {
-    @State private var chatMessages: [ChatMessage] = []
+    @State private var chatMessages: [ChatMessage] = ChatMessage.sampleMessages
     @State private var userPrompt: String = ""
     private let chatService = ChatService()
 
@@ -18,7 +18,7 @@ struct ChatView: View {
             ScrollView {
                 LazyVStack {
                     ForEach(chatMessages, id: \.id) {message in
-                        messageView(message: message)
+                        TextBubble(message: message)
                     }
                 }
             }
@@ -39,24 +39,6 @@ struct ChatView: View {
             }
         }
         .padding()
-    }
-    
-    func messageView(message: ChatMessage) -> some View {
-        HStack {
-            if message.sender == .User {
-                Spacer()
-            }
-            
-            Text(message.content)
-                .foregroundColor(message.sender == .User ? .white : .black)
-                .padding()
-                .background(message.sender == .User ? .blue : .gray.opacity(0.1))
-            .cornerRadius(17)
-            
-            if message.sender == .ChatBot {
-                Spacer()
-            }
-        }
     }
     
     func sendMessage() {
