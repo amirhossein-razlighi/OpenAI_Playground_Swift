@@ -10,6 +10,8 @@ import SwiftUI
 struct ChatView: View {
     @State private var chatMessages: [ChatMessage] = ChatMessage.sampleMessages
     @State private var userPrompt: String = ""
+    @State private var isLoading: Bool = false
+    
     private let chatService = ChatService()
 
     
@@ -18,7 +20,7 @@ struct ChatView: View {
             ScrollView {
                 LazyVStack {
                     ForEach(chatMessages, id: \.id) {message in
-                        TextBubble(message: message)
+                        TextBubble(message: message, showBubble: message == chatMessages.last)
                     }
                 }
             }
@@ -30,19 +32,27 @@ struct ChatView: View {
                     .cornerRadius(13)
                 
                 Button(action: sendMessage) {
-                    Text("Send!")
-                        .foregroundColor(.white)
-                        .padding()
-                        .background(.black)
-                        .cornerRadius(13)
+                    if !isLoading {
+                        Text("Send!")
+                            .foregroundColor(.white)
+                            .padding()
+                            .background(userPrompt.isEmpty ? .black.opacity(0.2) : .black)
+                            .cornerRadius(13)
+                    } else {
+                        ProgressView()
+                            .padding()
+                    }
                 }
+                .disabled(userPrompt.isEmpty)
             }
         }
         .padding()
     }
     
     func sendMessage() {
+        isLoading = true
         if userPrompt.isEmpty {
+            isLoading = false
             return
         }
         
@@ -51,9 +61,11 @@ struct ChatView: View {
         
         chatService.sendMessage(message: userPrompt) {assistantMessage in
             guard let assistantMessage = assistantMessage else {
+                isLoading = false
                 return
             }
             
+            isLoading = false
             let message = ChatMessage(id: UUID().uuidString, content: assistantMessage, dateCreated: Date(), sender: .ChatBot)
             chatMessages.append(message)
         }

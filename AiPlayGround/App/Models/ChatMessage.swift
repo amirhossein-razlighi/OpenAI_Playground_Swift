@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ChatMessage {
+struct ChatMessage: Equatable {
     let id: String
     let content: String
     let dateCreated: Date
