@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ChatView: View {
-    @State private var chatMessages: [ChatMessage] = ChatMessage.sampleMessages
+    @State private var chatMessages: [ChatMessage] = []
     @State private var userPrompt: String = ""
     @State private var isLoading: Bool = false
     
@@ -17,7 +17,7 @@ struct ChatView: View {
     
     var body: some View {
         VStack {
-            ScrollView {
+            ScrollView(showsIndicators: false) {
                 LazyVStack {
                     ForEach(chatMessages, id: \.id) {message in
                         TextBubble(message: message, showBubble: message == chatMessages.last)
